@@ -6,11 +6,7 @@ import { ContextStore } from "../../context";
 
 const CharacterPagination = ({ count, characters }) => {
   const { page, rowsPerPage } = useContext(ContextStore);
-  useEffect(() => {
-    characters?.forEach((element) => {
-      console.log(element);
-    });
-  }, []);
+
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - characters.length) : 0;
   const headers = ["image", "name", "status", "description"];

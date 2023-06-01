@@ -1,6 +1,10 @@
 import { Box, TableCell, TableRow, Typography } from "@mui/material";
+import { useEffect } from "react";
 
 const CustomTableRow = ({ row }) => {
+  useEffect(() => {
+    console.log("row at last", row);
+  }, []);
   return (
     <TableRow>
       <TableCell>
