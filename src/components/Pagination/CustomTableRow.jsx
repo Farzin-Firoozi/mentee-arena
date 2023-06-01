@@ -1,8 +1,23 @@
-import { Box, TableCell, TableRow, Typography } from "@mui/material";
-import { useEffect } from "react";
-
+import {
+  Box,
+  ButtonBase,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 const CustomTableRow = ({ row }) => {
-  console.log("row", row);
+  const bookmarkRow = () => {
+    let bookmark = [];
+    const localBookmark = localStorage?.getItem("bookmarks");
+    if (localBookmark) {
+      bookmark = JSON.parse(localBookmark);
+      bookmark.push(row);
+    } else {
+      bookmark.push(row);
+    }
+    localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+  };
   return (
     <TableRow>
       <TableCell>
@@ -35,6 +50,11 @@ const CustomTableRow = ({ row }) => {
           <Typography variant="h6">{row?.location?.name}</Typography>
           <Typography variant="h6">{row?.origin?.name}</Typography>
         </Box>
+      </TableCell>
+      <TableCell>
+        <ButtonBase onClick={bookmarkRow}>
+          <BookmarkBorderIcon />
+        </ButtonBase>
       </TableCell>
     </TableRow>
   );

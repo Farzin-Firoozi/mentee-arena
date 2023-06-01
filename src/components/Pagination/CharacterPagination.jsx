@@ -10,7 +10,7 @@ const CharacterPagination = ({ characters, count }) => {
     console.log("chaeacters", characters[0]);
   }, []);
 
-  const headers = ["image", "name", "status", "description"];
+  const headers = ["image", "name", "status", "description", "bookmark"];
   return (
     characters.length && (
       <BaseTable
