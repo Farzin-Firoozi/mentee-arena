@@ -6,16 +6,25 @@ import {
   Typography,
 } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 const CustomTableRow = ({ row }) => {
-  const bookmarkRow = () => {
+  const funLocalstorag = () => {
     let bookmark = [];
     const localBookmark = localStorage?.getItem("bookmarks");
     if (localBookmark) {
       bookmark = JSON.parse(localBookmark);
-      bookmark.push(row);
-    } else {
-      bookmark.push(row);
+      bookmark = bookmark.filter((element) => element.id !== row.id);
     }
+    return bookmark;
+  };
+  const bookmarkRow = () => {
+    let bookmark = funLocalstorag();
+    bookmark.push(row);
+    localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+  };
+
+  const clearbookmarkRow = () => {
+    let bookmark = funLocalstorag();
     localStorage.setItem("bookmarks", JSON.stringify(bookmark));
   };
   return (
@@ -54,6 +63,9 @@ const CustomTableRow = ({ row }) => {
       <TableCell>
         <ButtonBase onClick={bookmarkRow}>
           <BookmarkBorderIcon />
+        </ButtonBase>
+        <ButtonBase onClick={clearbookmarkRow}>
+          <BookmarkIcon />
         </ButtonBase>
       </TableCell>
     </TableRow>

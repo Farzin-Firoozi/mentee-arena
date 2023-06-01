@@ -20,6 +20,7 @@ const ContextProvider = ({ children }) => {
   const [next, setNext] = useState("");
   const [prev, setPrev] = useState(null);
   const [pages, setPages] = useState(0);
+
   return (
     <ContextStore.Provider
       value={{
