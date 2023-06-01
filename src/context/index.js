@@ -10,13 +10,16 @@ export const ContextStore = createContext({
   setNext: () => {},
   prev: "" || null,
   setPrev: () => {},
+  pages: 0,
+  setPages: () => {},
 });
 
 const ContextProvider = ({ children }) => {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(20);
   const [next, setNext] = useState("");
   const [prev, setPrev] = useState(null);
+  const [pages, setPages] = useState(0);
   return (
     <ContextStore.Provider
       value={{
@@ -28,6 +31,8 @@ const ContextProvider = ({ children }) => {
         setNext,
         prev,
         setPrev,
+        pages,
+        setPages,
       }}
     >
       {children}

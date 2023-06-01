@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { ContextStore } from "../../context";
 const TablePaginationActions = (props) => {
   const theme = useTheme();
-  const { count } = props;
+  const { count, pages } = props;
   const { page, setPage, rowsPerPage, setRowsPerPage, prev, next } =
     useContext(ContextStore);
   const handleFirstPageButtonClick = () => {
@@ -25,7 +25,7 @@ const TablePaginationActions = (props) => {
     setPage(page + 1);
   };
 
-  const handleLastPageButtonClick = (event) => {
+  const handleLastPageButtonClick = () => {
     setPage(41);
   };
   //console.log("themeeeee ", theme.direction);

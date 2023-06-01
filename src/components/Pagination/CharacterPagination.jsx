@@ -4,34 +4,28 @@ import BaseTable from "./BaseTable";
 import CustomTableRow from "./CustomTableRow";
 import { ContextStore } from "../../context";
 
-const CharacterPagination = ({ count, characters }) => {
+const CharacterPagination = ({ characters, count }) => {
   const { page, rowsPerPage } = useContext(ContextStore);
+  useEffect(() => {
+    console.log("chaeacters", characters[0]);
+  }, []);
 
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - characters.length) : 0;
   const headers = ["image", "name", "status", "description"];
   return (
-    <BaseTable
-      count={count}
-      rows={characters}
-      headers={headers}
-    >
-      {(rowsPerPage > 0
-        ? characters.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-        : characters
-      ).map((row) => (
-        <CustomTableRow
-          row={row}
-          key={row?.id}
-        />
-      ))}
-
-      {emptyRows > 0 && (
-        <TableRow style={{ height: 53 * emptyRows }}>
-          <TableCell colSpan={6} />
-        </TableRow>
-      )}
-    </BaseTable>
+    characters.length && (
+      <BaseTable
+        count={count}
+        rows={characters}
+        headers={headers}
+      >
+        {characters.map((row) => (
+          <CustomTableRow
+            row={row}
+            key={row?.id}
+          />
+        ))}
+      </BaseTable>
+    )
   );
 };
 

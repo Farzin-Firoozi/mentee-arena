@@ -4,24 +4,20 @@ import CharacterPagination from "../components/Pagination/CharacterPagination";
 import { ContextStore } from "../context";
 
 const Characters = () => {
-  const { page, setPage, rowsPerPage, setNext, setPrev } =
+  const { page, setNext, setPrev } =
     useContext(ContextStore);
 
   const [characters, setCharacters] = useState([]);
   const [count, setCount] = useState(0);
-  //is it needed ?
-  const addChracters = (item) => {
-    setCharacters((prv) => [...prv, item]);
-    console.log("item in get", item);
-  };
+  const [pages, setPages] = useState(0);
+  
   const getCharacters = async (data) => {
     try {
       const res = await getPaginatCharacters(data);
-      res?.data?.results.forEach((item) => {
-        addChracters(item);
-      });
+      setCharacters(res?.data?.results);
       res?.data?.info &&
         setCount(res?.data?.info?.count) &&
+        setPages(res?.data?.info?.pages) &&
         setNext(res?.data?.info?.next) &&
         setPrev(res?.data?.info?.prev);
       return true;
@@ -32,10 +28,11 @@ const Characters = () => {
   };
 
   useEffect(() => {
-    console.log("changes in page or rows", page, rowsPerPage);
+    setCharacters([]);
+    console.log("changes in page or rows", page);
     let data = { address: `/character/?page=${page}` };
     getCharacters(data);
-  }, [page, rowsPerPage]);
+  }, [page]);
 
   return (
     characters.length && (

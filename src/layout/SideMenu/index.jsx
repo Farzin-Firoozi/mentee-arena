@@ -28,56 +28,21 @@ const SideMenu = () => {
         />
         <Divider />
         <List>
-          <ListItem>
-            <ListItemText>blblablsb</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>blblablsb</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>blblablsb</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>blblablsb</ListItemText>
-          </ListItem>
-          {/* {true
-            ? ["Articles", "Add"].map((text, index) => (
-                <NavLink
-                  to={`/${text}`}
-                  className={classes.items}
-                  key={text}
-                >
-                  <ListItem button>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? (
-                        <AddRoundedIcon />
-                      ) : (
-                        <AddRoundedIcon />
-                      )}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                </NavLink>
-              ))
-            : null}
-          <NavLink to={true ? `/` : "/SignIn"}>
-            {true ? (
-              <ListItem onClick={() => console.log("clicked")}>
-                <ListItemIcon>
-                  {" "}
-                  <AddRoundedIcon />{" "}
-                </ListItemIcon>
-                <ListItemText primary="SignOut" />
-              </ListItem>
-            ) : (
-              <ListItem>
-                <ListItemIcon>
-                  <AddRoundedIcon />
-                </ListItemIcon>
-                <ListItemText primary="SignIn" />
-              </ListItem>
-            )}
-          </NavLink> */}
+          <NavLink to={"/"}>
+            <ListItem>
+              <ListItemText>Characters List</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink to={"/search-character"}>
+            <ListItem>
+              <ListItemText>Search a Character</ListItemText>
+            </ListItem>
+          </NavLink>
+          <NavLink to={"/bookmark"}>
+            <ListItem>
+              <ListItemText>Bookmark Character</ListItemText>
+            </ListItem>
+          </NavLink>
         </List>
       </Box>
     </Box>

@@ -21,21 +21,9 @@ import { ContextStore } from "../../context";
 export default function BaseTable({ count, rows, headers, children }) {
   const theme = useTheme();
   const classes = TableStyle(theme);
-  const { page, setPage, rowsPerPage, setRowsPerPage } =
+  const { page, setPage, rowsPerPage, setRowsPerPage, pages } =
     useContext(ContextStore);
-  // Avoid a layout jump when reaching the last page with empty rows.
-
-  const handleChangePage = (event, newPage) => {
-    console.log("newpage", newPage);
-    newPage && setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    console.log("set page", rowsPerPage);
-    setRowsPerPage(parseInt(event.target.value, 5));
-    setPage(1);
-  };
-
+  console.log("pages", pages);
   return (
     <Box sx={classes.TableBox}>
       <TableContainer
@@ -76,24 +64,23 @@ export default function BaseTable({ count, rows, headers, children }) {
             }}
           >
             <TableRow>
-             
-                <TablePagination
-                  rowsPerPageOptions={[10, 20, 25, { label: "All", value: -1 }]}
-                  colSpan={3}
-                  count={count}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  SelectProps={{
-                    inputProps: {
-                      "aria-label": "rows per page",
-                    },
-                    native: true,
-                  }}
-                  onPageChange={() => console.log("page changed")}
-                  onRowsPerPageChange={() => console.log("per page change")}
-                  ActionsComponent={TablePaginationActions}
-                />
-          
+              <TablePagination
+                rowsPerPageOptions={[20]}
+                colSpan={3}
+                count={count}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                pages={pages}
+                SelectProps={{
+                  inputProps: {
+                    "aria-label": "rows per page",
+                  },
+                  native: true,
+                }}
+                onPageChange={() => console.log("page changed")}
+                onRowsPerPageChange={() => console.log("per page change")}
+                ActionsComponent={TablePaginationActions}
+              />
             </TableRow>
           </TableFooter>
         </Table>
