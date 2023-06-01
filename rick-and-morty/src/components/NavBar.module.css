@@ -1,0 +1,7 @@
+.navbar {
+  max-width: 300px;
+  margin: 5px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
