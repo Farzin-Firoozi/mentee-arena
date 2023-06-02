@@ -1,0 +1,10 @@
+.headerContainer{
+    display: flex;
+    padding: 8px;
+    gap: 32px;
+}
+
+.headerContainer > nav > a{
+    cursor: pointer;
+    
+}

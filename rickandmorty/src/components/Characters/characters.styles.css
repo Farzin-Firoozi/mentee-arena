@@ -1,0 +1,24 @@
+.charactersContainer{    
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+
+.title > svg:hover{
+    cursor: pointer;
+}
+
+.title > button{
+    outline: none;
+    background-color: antiquewhite;
+    /* border: none; */
+}
+
