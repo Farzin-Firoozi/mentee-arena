@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+tr > td {
+  marging: 5px;
+  padding: 4px;
+  justify-items: center;
+  place-items: center;
+  flex: 1 1 auto;
+}
