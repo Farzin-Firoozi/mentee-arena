@@ -1,0 +1,7 @@
+.children{    
+    background-color: lightgray;
+    border-radius: 16px;
+    padding: 1rem;
+    height: max-content;
+    min-height: 75vh;  
+}

@@ -1,0 +1,23 @@
+.container {
+  background-color: lightgray;
+
+  padding: 3rem;
+  height: max-content;
+}
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+.buttonContainer > button {
+  padding-inline: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
