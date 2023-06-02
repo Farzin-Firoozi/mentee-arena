@@ -40,16 +40,16 @@ export default function BaseTable({ count, rows, headers, children }) {
           <TableHead>
             <TableRow>
               {headers?.map((header, index) => {
-                const align = headers.indexOf(header) !== 0 ? "right" : "left";
                 return (
                   <TableCell
-                    align={align}
+                    sx={{
+                      padding: "0px",
+                      width: "150px",
+                    }}
+                    align="left"
                     key={index}
                   >
-                    {" "}
-                    <Typography color={theme.palette.text.primary.main}>
-                      {header}
-                    </Typography>{" "}
+                    <Typography color="#55624C">{header}</Typography>{" "}
                   </TableCell>
                 );
               })}

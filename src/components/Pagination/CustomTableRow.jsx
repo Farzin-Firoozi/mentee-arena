@@ -56,32 +56,49 @@ const CustomTableRow = ({ row }) => {
           src={row?.image}
         />
       </TableCell>
-      <TableCell>{row?.name}</TableCell>
-      <TableCell>{row?.status}</TableCell>
+      <TableCell>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            color: "#55624C",
+          }}
+        >
+          {row?.name}
+        </Typography>
+      </TableCell>
+      <TableCell>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            color: "#55624C",
+          }}
+        >
+          {row?.status}
+        </Typography>
+      </TableCell>
       <TableCell>
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "flex-start",
-            alignItems: "center",
+            alignItems: "flex-start",
+            color: "#908B0B",
           }}
         >
-          <Typography variant="h6">{row?.species}</Typography>
-          <Typography variant="h6">{row?.gender}</Typography>
-          <Typography variant="h6">{row?.type}</Typography>
-          <Typography variant="h6">{row?.location?.name}</Typography>
-          <Typography variant="h6">{row?.origin?.name}</Typography>
+          <Typography variant="subtitle1">{row?.species}</Typography>
+          <Typography variant="subtitle1">{row?.gender}</Typography>
+          <Typography variant="subtitle1">{row?.type}</Typography>
+          <Typography variant="subtitle1">{row?.location?.name}</Typography>
+          <Typography variant="subtitle1">{row?.origin?.name}</Typography>
         </Box>
       </TableCell>
       <TableCell>
         <ButtonBase onClick={bookmarkRow}>
-          <BookmarkBorderIcon />
-          bookmark
+          <BookmarkIcon color="success" />
         </ButtonBase>
         <ButtonBase onClick={clearbookmarkRow}>
-          <BookmarkIcon />
-          clear from bookmark
+          <BookmarkBorderIcon color="error" />
         </ButtonBase>
       </TableCell>
     </TableRow>

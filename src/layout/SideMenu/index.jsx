@@ -28,18 +28,45 @@ const SideMenu = () => {
         />
         <Divider />
         <List>
-          <NavLink to={"/"}>
-            <ListItem>
+          <NavLink
+            to={"/"}
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <ListItem
+              sx={{
+                color: "#908B0B",
+              }}
+            >
               <ListItemText>Characters List</ListItemText>
             </ListItem>
           </NavLink>
-          <NavLink to={"/search-character"}>
-            <ListItem>
+          <NavLink
+            to={"/search-character"}
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <ListItem
+              sx={{
+                color: "#908B0B",
+              }}
+            >
               <ListItemText>Search a Character</ListItemText>
             </ListItem>
           </NavLink>
-          <NavLink to={"/bookmark"}>
-            <ListItem>
+          <NavLink
+            to={"/bookmark"}
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <ListItem
+              sx={{
+                color: "#908B0B",
+              }}
+            >
               <ListItemText>Bookmark Character</ListItemText>
             </ListItem>
           </NavLink>
