@@ -4,14 +4,15 @@ import CharacterPagination from "../components/Pagination/CharacterPagination";
 import { ContextStore } from "../context";
 
 const Characters = () => {
-  const { page, setNext, setPrev } =
+  const { page, setNext, setPrev, loaderStatus, setLoaderStatus } =
     useContext(ContextStore);
 
   const [characters, setCharacters] = useState([]);
   const [count, setCount] = useState(0);
   const [pages, setPages] = useState(0);
-  
+
   const getCharacters = async (data) => {
+    setLoaderStatus(true);
     try {
       const res = await getPaginatCharacters(data);
       setCharacters(res?.data?.results);
@@ -23,7 +24,10 @@ const Characters = () => {
       return true;
     } catch (rej) {
       alert(rej);
+
       return false;
+    } finally {
+      setLoaderStatus(false);
     }
   };
 
@@ -34,13 +38,13 @@ const Characters = () => {
     getCharacters(data);
   }, [page]);
 
-  return (
-    characters.length && (
-      <CharacterPagination
-        characters={characters}
-        count={count}
-      />
-    )
+  return characters.length ? (
+    <CharacterPagination
+      characters={characters}
+      count={count}
+    />
+  ) : (
+    <></>
   );
 };
 

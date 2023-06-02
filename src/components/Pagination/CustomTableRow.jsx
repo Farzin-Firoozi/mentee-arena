@@ -7,8 +7,12 @@ import {
 } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useContext, useState } from "react";
+import { ContextStore } from "../../context";
 const CustomTableRow = ({ row }) => {
-  const funLocalstorag = () => {
+  const { setLoaderStatus, setReloadBookmark } = useContext(ContextStore);
+  //const [bookedStatus,setBookedStatus] = useState(false)
+  const funcLocalstorag = () => {
     let bookmark = [];
     const localBookmark = localStorage?.getItem("bookmarks");
     if (localBookmark) {
@@ -18,14 +22,24 @@ const CustomTableRow = ({ row }) => {
     return bookmark;
   };
   const bookmarkRow = () => {
-    let bookmark = funLocalstorag();
-    bookmark.push(row);
-    localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+    setLoaderStatus(true);
+    setReloadBookmark((prev) => !prev);
+    setTimeout(() => {
+      let bookmark = funcLocalstorag();
+      bookmark.push(row);
+      localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+      setLoaderStatus(false);
+    }, 1000);
   };
 
   const clearbookmarkRow = () => {
-    let bookmark = funLocalstorag();
-    localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+    setLoaderStatus(true);
+    setReloadBookmark((prev) => !prev);
+    setTimeout(() => {
+      let bookmark = funcLocalstorag();
+      localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+      setLoaderStatus(false);
+    }, 1000);
   };
   return (
     <TableRow>
@@ -63,9 +77,11 @@ const CustomTableRow = ({ row }) => {
       <TableCell>
         <ButtonBase onClick={bookmarkRow}>
           <BookmarkBorderIcon />
+          bookmark
         </ButtonBase>
         <ButtonBase onClick={clearbookmarkRow}>
           <BookmarkIcon />
+          clear from bookmark
         </ButtonBase>
       </TableCell>
     </TableRow>

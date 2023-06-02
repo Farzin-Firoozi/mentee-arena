@@ -12,6 +12,10 @@ export const ContextStore = createContext({
   setPrev: () => {},
   pages: 0,
   setPages: () => {},
+  loaderStatus: false,
+  setLoaderStatus: () => {},
+  reloadBookmark: false,
+  setReloadBookmark: () => {},
 });
 
 const ContextProvider = ({ children }) => {
@@ -20,7 +24,8 @@ const ContextProvider = ({ children }) => {
   const [next, setNext] = useState("");
   const [prev, setPrev] = useState(null);
   const [pages, setPages] = useState(0);
-
+  const [loaderStatus, setLoaderStatus] = useState(false);
+  const [reloadBookmark, setReloadBookmark] = useState(false);
   return (
     <ContextStore.Provider
       value={{
@@ -34,6 +39,10 @@ const ContextProvider = ({ children }) => {
         setPrev,
         pages,
         setPages,
+        loaderStatus,
+        setLoaderStatus,
+        reloadBookmark,
+        setReloadBookmark,
       }}
     >
       {children}

@@ -9,13 +9,16 @@ import {
 import { Box, ButtonBase } from "@mui/material";
 import { getCharacterByName } from "../api";
 import CharacterPagination from "../components/Pagination/CharacterPagination";
-const SearchCharacters = () => {
-  const { page, setNext, setPrev, pages, setPages } = useContext(ContextStore);
 
+const SearchCharacters = () => {
+  const { page, setNext, setPrev, pages, setPages, setLoaderStatus } =
+    useContext(ContextStore);
   const [characters, setCharacters] = useState([]);
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
+
   const getSearchedCharacter = async (data) => {
+    setLoaderStatus(true);
     try {
       const res = await getCharacterByName(data);
       console.log(res);
@@ -29,6 +32,8 @@ const SearchCharacters = () => {
     } catch (rej) {
       alert(rej);
       return false;
+    } finally {
+      setLoaderStatus(false);
     }
   };
   const handleSubmit = (e) => {
@@ -71,12 +76,14 @@ const SearchCharacters = () => {
           <ButtonBase type="submit">search</ButtonBase>
         </form>
       </Box>
-      {characters.length && (
+      {characters?.length ? (
         <CharacterPagination
           characters={characters}
           count={count}
           pages={pages}
         />
+      ) : (
+        <></>
       )}
     </div>
   );
