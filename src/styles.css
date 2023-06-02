@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+}
+.container {
+  margin: 0 auto;
+  padding: 0 20em;
+}
+
+.search-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.element-list {
+  display: flex;
+  flex-direction: column;
+  position: scroll;
+  gap: 8px;
+}
+
+.element-list__item {
+  padding: 10px;
+  background-color: #eee;
+  float: left;
+  transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s, transform 0.2s, -webkit-transform 0.2s;
+}
+
+.active {
+  background: #e8fbe4;
+  color: #2c9f02;
+}
+
+.element-list__item__image {
+  display: block;
+  height: auto;
+  margin: 0;
+  opacity: 1;
+  transition: opacity 0.2s;
+  width: 100%;
+}
+
+.element-list__item__loader {
+  opacity: 0;
+}
+  
