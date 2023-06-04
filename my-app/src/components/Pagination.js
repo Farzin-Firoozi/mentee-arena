@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setPageNumber } from '../features/rickAndMorty/rickAndMortySlice';
 import ReactPaginate from "react-paginate";
 
-export default function Pagination({ info }) {
+export default function Pagination({ info, results }) {
   const dispatch = useDispatch();
 
   const pageNumber = useSelector(state => state.rickAndMorty.rickAndMorty.pageNumber);
@@ -22,7 +22,7 @@ export default function Pagination({ info }) {
   }, []);
 
   return (
-    <ReactPaginate
+    results && <ReactPaginate
       className="pagination justify-content-center my-4 gap-4"
       nextLabel="Next"
       previousLabel="Prev"

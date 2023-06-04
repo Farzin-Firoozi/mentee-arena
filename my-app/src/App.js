@@ -1,7 +1,7 @@
 import './style.css';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { setFetchedData } from './features/rickAndMorty/rickAndMortySlice';
+import { setFetchedData, setLoading } from './features/rickAndMorty/rickAndMortySlice';
 import Card from './components/Card';
 import Search from './components/Search';
 import Pagination from './components/Pagination';
@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch();
 
   const fetchedData = useSelector(state => state.rickAndMorty.rickAndMorty.fetchedData);
+  const loading = useSelector(state => state.rickAndMorty.rickAndMorty.loading);
   const pageNumber = useSelector(state => state.rickAndMorty.rickAndMorty.pageNumber);
   const search = useSelector(state => state.rickAndMorty.rickAndMorty.search);
 
@@ -17,16 +18,26 @@ function App() {
 
   let api = `https://rickandmortyapi.com/api/character/?page=${pageNumber}&name=${search}`;
 
+
+
   useEffect(() => {
+    dispatch(
+      setLoading(true)
+    );
     fetch(api)
-    .then((res) => res.json())
-    .then((response) => {
-      dispatch(
-        setFetchedData(response)
-      )
-    });
+      .then((res) => res.json())
+      .then((response) => {
+        dispatch(
+          setFetchedData(response)
+        );
+        dispatch(
+          setLoading(false)
+        );
+      });
+      console.log(loading);
   }, [api]);
 
+  console.log(fetchedData);
 
   return (
     <div className="App">
@@ -36,12 +47,14 @@ function App() {
       <div className="row justify-content-center">
         <div className="col-lg-8 col-12">
           <div className="row">
-            <Card results={results} />
+            {loading && <div className="spin-loader mx-auto"></div>}
+            {!loading && <Card results={results} />}
           </div>
         </div>
       </div>
       <Pagination
         info={info}
+        results={results}
       />
       </div>
     </div>

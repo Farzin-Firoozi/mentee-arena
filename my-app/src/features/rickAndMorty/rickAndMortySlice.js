@@ -3,8 +3,10 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     rickAndMorty: {
       fetchedData: [],
+      loading: false,
       pageNumber: 1,
-      search: ""
+      search: "",
+      bookmarkedCards: []
     }
   }
 
@@ -21,13 +23,21 @@ export const rickAndMortySlice = createSlice({
     setSearch: (state, action) => {
       state.rickAndMorty.search = action.payload;
     },
+    setLoading: (state, action) => {
+      state.rickAndMorty.loading = action.payload;
+    },
+    setBookmarkedCards: (state, action) => {
+      state.rickAndMorty.bookmarkedCards = action.payload;
+    }
   },
 })
 
 export const {
   setFetchedData,
   setPageNumber,
-  setSearch
+  setSearch,
+  setLoading,
+  setBookmarkedCards
 } = rickAndMortySlice.actions;
 
 export default rickAndMortySlice.reducer;
