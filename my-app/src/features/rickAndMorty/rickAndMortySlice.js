@@ -6,7 +6,9 @@ const initialState = {
       loading: false,
       pageNumber: 1,
       search: "",
-      bookmarkedCards: []
+      status: "",
+      gender: "",
+      species: ""
     }
   }
 
@@ -26,8 +28,14 @@ export const rickAndMortySlice = createSlice({
     setLoading: (state, action) => {
       state.rickAndMorty.loading = action.payload;
     },
-    setBookmarkedCards: (state, action) => {
-      state.rickAndMorty.bookmarkedCards = action.payload;
+    setStatus: (state, action) => {
+      state.rickAndMorty.status = action.payload;
+    },
+    setGender: (state, action) => {
+      state.rickAndMorty.gender = action.payload;
+    },
+    setSpecies: (state, action) => {
+      state.rickAndMorty.species = action.payload;
     }
   },
 })
@@ -37,7 +45,9 @@ export const {
   setPageNumber,
   setSearch,
   setLoading,
-  setBookmarkedCards
+  setStatus,
+  setGender,
+  setSpecies
 } = rickAndMortySlice.actions;
 
 export default rickAndMortySlice.reducer;
