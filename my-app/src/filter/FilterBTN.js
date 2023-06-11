@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
-import { setStatus, setPageNumber } from '../features/rickAndMorty/rickAndMortySlice';
+import { setPageNumber } from '../features/rickAndMorty/rickAndMortySlice';
 
-export default function FilterBTN({ input, index, name }) {
+export default function FilterBTN({ task, input, index, name }) {
 
   const dispatch = useDispatch();
 
   function handleClick(input) {
-    dispatch(setStatus(input));
+    task(input);
     dispatch(setPageNumber(1))
   }
 
@@ -17,11 +17,7 @@ export default function FilterBTN({ input, index, name }) {
           className="form-check-input" type="radio"
           name={name} id={`${name}-${index}`}
         />
-        <label 
-          onClick={() => handleClick(input)}
-          className="status-button"
-          for={`${name}-${index}`} 
-        > 
+        <label onClick={() => handleClick(input)} className="filter-button" htmlFor={`${name}-${index}`}> 
           {input}
         </label>
       </div>

@@ -14,7 +14,7 @@ li a {
 }
 .card {
   border: 2px solid #88bf09cf;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .content {
   padding: 10px;
@@ -46,6 +46,7 @@ li a {
   padding: 6px 14px;
   border-radius: 0.375rem;
   transition: .15s all;
+  cursor: pointer;
 }
 .button a {
   color: #fff;
@@ -130,19 +131,18 @@ li a {
 .form-check-input:checked + label {
   background-color: #93ce0a;
   border: 1px solid #77a709;
-  color: #fff;
 }
 input[type="radio"] { 
-  display: none; 
+  display: none;
 }
 
-.status-button {
+.filter-button {
   background-color: #79a908;
-  font-size: 18px;
+  font-size: 16px;
   border: 1px solid transparent;
-  padding: 6px 14px;
+  padding: 4px 12px;
   border-radius: 0.375rem;
-  transition: .15s all;
+  transition: all .15s;
   color: #fff;
   cursor: pointer;
 }
@@ -156,6 +156,21 @@ input[type="radio"] {
 }
 .accordion-button:not(.collapsed)::after {
   background-image: var(--bs-accordion-btn-icon);
+}
+.accordion-button::after {
+  transition: transform .2s;
+}
+.accordion-collapse {
+  transition: height .2s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+button[aria-expanded="true"] > .open,
+button[aria-expanded="false"] > .close {
+  display: none;
+}
+.active {
+  color: #445a13 !important;
+  font-weight: 600;
+  border-bottom: 3px solid #678917;
 }
 @-webkit-keyframes spin {
   0% {

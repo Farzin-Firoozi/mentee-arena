@@ -7,7 +7,7 @@ export default function Search() {
 
 
   return (
-    <form className="search d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-5">
+    <form className="search d-flex flex-sm-row flex-column align-items-center justify-content-center gap-4 mb-4">
       <input
         onChange={(e) => {
           dispatch(setPageNumber(1));
