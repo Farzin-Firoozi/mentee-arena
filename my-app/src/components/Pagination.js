@@ -28,7 +28,7 @@ export default function Pagination({ info, results }) {
       previousLabel="Prev"
       previousClassName="button fs-5 prev"
       nextClassName="button fs-5 next"
-      activeClassName="active"
+      activeClassName="active-pagination-button"
       pageClassName="page-item"
       pageLinkClassName="page-link"
       forcePage={pageNumber === 1 ? 0 : pageNumber - 1}

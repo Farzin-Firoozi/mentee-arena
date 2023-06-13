@@ -1,6 +1,6 @@
 import FilterBTN from "../FilterBTN";
 import { useDispatch } from "react-redux";
-import { setSpecies } from '../../features/rickAndMorty/rickAndMortySlice';
+import { setSpecies } from '../../../features/rickAndMorty/rickAndMortySlice';
 
 export default function Species() {
 

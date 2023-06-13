@@ -1,6 +1,6 @@
 import FilterBTN from "../FilterBTN";
 import { useDispatch } from "react-redux";
-import { setGender } from '../../features/rickAndMorty/rickAndMortySlice';
+import { setGender } from '../../../features/rickAndMorty/rickAndMortySlice';
 
 
 export default function Gender() {

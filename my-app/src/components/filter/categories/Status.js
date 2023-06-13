@@ -1,6 +1,6 @@
 import FilterBTN from "../FilterBTN";
 import { useDispatch } from "react-redux";
-import { setStatus } from '../../features/rickAndMorty/rickAndMortySlice';
+import { setStatus } from '../../../features/rickAndMorty/rickAndMortySlice';
 
 export default function Status() {
   const dispatch = useDispatch();

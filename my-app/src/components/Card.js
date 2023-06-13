@@ -3,8 +3,6 @@ export default function Card({ results }) {
 
   let display;
 
-  console.log(results);
-
   if (results) {
     display = results.map((character) => {
       let { id, image, name, status, location } = character;

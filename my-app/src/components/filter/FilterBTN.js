@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setPageNumber } from '../features/rickAndMorty/rickAndMortySlice';
+import { setPageNumber } from '../../features/rickAndMorty/rickAndMortySlice';
 
 export default function FilterBTN({ task, input, index, name }) {
 

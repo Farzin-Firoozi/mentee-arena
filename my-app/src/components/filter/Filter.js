@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setStatus, setGender, setSpecies, setPageNumber } from '../features/rickAndMorty/rickAndMortySlice';
+import { setStatus, setGender, setSpecies, setPageNumber } from '../../features/rickAndMorty/rickAndMortySlice';
 import Gender from "./categories/Gender";
 import Species from "./categories/Species";
 import Status from './categories/Status';
