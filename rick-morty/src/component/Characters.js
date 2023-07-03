@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import CharacterItem from "./CharacterItem";
 import Search from "./Search";
-import {BookMarkContextProvider} from "../storage/bookMark-context";
 
 const Characters = () => {
   const [characterList, setCharacterList] = useState([]);
@@ -25,14 +24,12 @@ const Characters = () => {
     setCharacterList(result);
   };
   return (
-    <BookMarkContextProvider>
-      <div>
-        <Search searchResult={searchResultsHandler} />
-        {characterList.map((item) => (
-          <CharacterItem key={item.id} item={item} />
-        ))}
-      </div>
-    </BookMarkContextProvider>
+    <div>
+      <Search searchResult={searchResultsHandler} />
+      {characterList.map((item) => (
+        <CharacterItem key={item.id} item={item} />
+      ))}
+    </div>
   );
 };
 
