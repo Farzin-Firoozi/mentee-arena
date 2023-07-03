@@ -14,45 +14,38 @@ const CharacterItem = ({item}) => {
   //   //localStorage.setObj("booked", blList);
   //};
 
-  // const bookMarkCtx = useContext(BookMarkContext);
-  // console.log("bookMarkCtx :", bookMarkCtx);
+  const bookMarkCtx = useContext(BookMarkContext);
+  console.log("bookMarkCtx :", bookMarkCtx);
 
   return (
-    <BookMarkContext.Consumer>
-      {(ctx) => {
-        console.log("c", ctx.markList);
-        return (
-          <div className={classes.container}>
-            <div>
-              <img src={item.image} />
-            </div>
-            <div>
-              <h2>{item.name}</h2>
+    <div className={classes.container}>
+      <div>
+        <img src={item.image} />
+      </div>
+      <div>
+        <h2>{item.name}</h2>
 
-              <table>
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>species</th>
-                    <th>location</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{item.name}</td>
-                    <td>{item.status}</td>
-                    <td>{item.species}</td>
-                    <td>{item.location.name}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            {/* <Button onClick={addToBookMarkHandler} /> */}
-          </div>
-        );
-      }}
-    </BookMarkContext.Consumer>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>species</th>
+              <th>location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{item.name}</td>
+              <td>{item.status}</td>
+              <td>{item.species}</td>
+              <td>{item.location.name}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {/* <Button onClick={addToBookMarkHandler} /> */}
+    </div>
   );
 };
 
