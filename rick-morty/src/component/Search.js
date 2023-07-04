@@ -38,13 +38,16 @@ const Search = (props) => {
     getCharacter(event.target.value);
   };
 
+  const bList = JSON.parse(localStorage.getItem("bookM") || "[]");
+
   return (
     <div className={classes.container}>
       <form onSubmit={onSearchSubmitHandler}>
         <Input label="Search favorite character" onChange={onChangeHandler} />
       </form>
       {loading && <p> is Loading ...</p>}
-      <p>{bCtx.markList.length}</p>
+      <p>from useContext : {bCtx.markList.length}</p>
+      <p>from localStorage :{bList.length}</p>{" "}
     </div>
   );
 };

@@ -1,21 +1,16 @@
 import React, {useContext, useEffect, useState} from "react";
 import classes from "./CharacterItem.module.css";
-import Button from "./UI/Button";
 import BookMarkContext from "../storage/bookMark-context";
 import {RiBookmark3Fill} from "react-icons/ri";
 
 const CharacterItem = ({item}) => {
   const [markState, setMarkState] = useState(false);
-
   const bookMarkCtx = useContext(BookMarkContext);
-  console.log("bookMarkCtx.markList :", bookMarkCtx.markList);
-  // console.log("markState", markState);
-  //console.log(bookMarkCtx.markList.filter((e) => e.id === item.id).length > 0);
-
-  // useEffect(() => {
-  //   bookMarkCtx.addToBookMarkList(item);
-  // }, [markState]);
-
+  useEffect(() => {
+    if (bookMarkCtx.markList.filter((e) => e.id === item.id).length > 0) {
+      setMarkState(true);
+    }
+  }, []);
   const addToBookMarkHandler = () => {
     bookMarkCtx.addToBookMarkList(item);
     setMarkState(true);

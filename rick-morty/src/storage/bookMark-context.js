@@ -6,20 +6,21 @@ const BookMarkContext = React.createContext({
   removeFromBookMarkList: () => {},
 });
 
+const initialBookMarkList = JSON.parse(localStorage.getItem("bookM") || "[]");
 export const BookMarkContextProvider = (props) => {
-  const [bookMarkList, setBookMarkList] = useState([]);
+  const [bookMarkList, setBookMarkList] = useState(initialBookMarkList);
 
-  // const bookMarkContext = {
-  //     markList: [2, 3],
-  //   };
-
+  const markList = JSON.parse(localStorage.getItem("bookM") || "[]");
   const addToBookMarkList = (item) => {
-    setBookMarkList([...bookMarkList, item]);
+    const updateList = [...bookMarkList, item];
+    setBookMarkList(updateList);
+    localStorage.setItem("bookM", JSON.stringify(updateList));
   };
   const removeFromBookMarkList = (id) => {
-    //  const bList = bookMarkList.filter((item) => item.id !== id);
-    // console.log("bList", bList);
-    setBookMarkList(bookMarkList.filter((item) => item.id !== id));
+    console.log("id", id);
+    const updateList = markList.filter((item) => item.id !== id);
+    setBookMarkList(updateList);
+    localStorage.setItem("bookM", JSON.stringify(updateList));
   };
 
   return (

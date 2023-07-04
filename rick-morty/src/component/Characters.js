@@ -2,9 +2,12 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import CharacterItem from "./CharacterItem";
 import Search from "./Search";
+import BookMarkList from "./BookMarkList";
+import Button from "./UI/Button";
 
 const Characters = () => {
   const [characterList, setCharacterList] = useState([]);
+  const [showBookMarksStatus, setShowBookMarksStatus] = useState(false);
 
   useEffect(() => {
     async function getAllCharacters() {
@@ -23,12 +26,28 @@ const Characters = () => {
   const searchResultsHandler = (result) => {
     setCharacterList(result);
   };
-  return (
+
+  const showBookMarkHandler = () => {
+    setShowBookMarksStatus(!showBookMarksStatus);
+  };
+
+  let content = (
     <div>
       <Search searchResult={searchResultsHandler} />
       {characterList.map((item) => (
         <CharacterItem key={item.id} item={item} />
       ))}
+    </div>
+  );
+  if (showBookMarksStatus) {
+    content = <BookMarkList />;
+  }
+  return (
+    <div>
+      <Button onClick={showBookMarkHandler}>
+        Go to {showBookMarksStatus ? "Home Page" : "BookMark page"} !
+      </Button>
+      {content}
     </div>
   );
 };
