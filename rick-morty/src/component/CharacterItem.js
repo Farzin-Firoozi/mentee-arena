@@ -1,27 +1,41 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import classes from "./CharacterItem.module.css";
 import Button from "./UI/Button";
 import BookMarkContext from "../storage/bookMark-context";
-//import {BookMarkContext} from "../storage/bookMark-context";
+import {RiBookmark3Fill} from "react-icons/ri";
 
 const CharacterItem = ({item}) => {
-  // // const bctx = useContext(BookMarkContext);
-  // const [blList, setBList] = useState([]);
-  // // console.log("local .....", localStorage.getItem("booked"));
-  // const addToBookMarkHandler = () => {
-  //   setBList([...blList, item]);
-  //   //localStorage.set("booked", JSON.stringify(item.name));
-  //   //localStorage.setObj("booked", blList);
-  //};
+  const [markState, setMarkState] = useState(false);
 
   const bookMarkCtx = useContext(BookMarkContext);
-  console.log("bookMarkCtx :", bookMarkCtx);
+  console.log("bookMarkCtx.markList :", bookMarkCtx.markList);
+  // console.log("markState", markState);
+  //console.log(bookMarkCtx.markList.filter((e) => e.id === item.id).length > 0);
+
+  // useEffect(() => {
+  //   bookMarkCtx.addToBookMarkList(item);
+  // }, [markState]);
+
+  const addToBookMarkHandler = () => {
+    bookMarkCtx.addToBookMarkList(item);
+    setMarkState(true);
+  };
+  const removeFromBookMarkHandler = () => {
+    console.log("remove");
+    bookMarkCtx.removeFromBookMarkList(item.id);
+    setMarkState(false);
+  };
 
   return (
     <div className={classes.container}>
       <div>
         <img src={item.image} />
       </div>
+      <RiBookmark3Fill
+        style={{color: markState ? "yellow" : "white", fontSize: "50px"}}
+        onClick={markState ? removeFromBookMarkHandler : addToBookMarkHandler}
+      />
+
       <div>
         <h2>{item.name}</h2>
 
@@ -44,7 +58,6 @@ const CharacterItem = ({item}) => {
           </tbody>
         </table>
       </div>
-      {/* <Button onClick={addToBookMarkHandler} /> */}
     </div>
   );
 };

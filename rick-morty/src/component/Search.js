@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import classes from "./Search.module.css";
 import Input from "./UI/Input";
 import axios from "axios";
+import BookMarkContext from "../storage/bookMark-context";
 
 const Search = (props) => {
   const [loading, setLoading] = useState(false);
+  const bCtx = useContext(BookMarkContext);
 
   async function getCharacter(name) {
     console.log("ee");
@@ -42,6 +44,7 @@ const Search = (props) => {
         <Input label="Search favorite character" onChange={onChangeHandler} />
       </form>
       {loading && <p> is Loading ...</p>}
+      <p>{bCtx.markList.length}</p>
     </div>
   );
 };
