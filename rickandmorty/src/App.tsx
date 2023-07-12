@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Search from "./pages/search";
 import Bookmark from "./pages/bookmark";
 import Layout from "./components/Layout";
+import Location from "./pages/location";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/bookmark" element={<Bookmark />} />
+          <Route path="/location" element={<Location />} />
         </Route>
       </Routes>
     </BrowserRouter>

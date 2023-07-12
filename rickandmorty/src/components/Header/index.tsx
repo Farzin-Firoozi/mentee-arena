@@ -23,6 +23,11 @@ const Header: React.FC = () => {
           Bookmark
         </Link>
       </nav>
+      <nav>
+        <Link style={{ color: pathname === "/location" ? "#000" : "" }} to="/location">
+          Location
+        </Link>
+      </nav>
     </header>
   );
 };

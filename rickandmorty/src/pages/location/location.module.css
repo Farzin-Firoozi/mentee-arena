@@ -1,0 +1,12 @@
+.virtuoso {
+  height: 800px !important;
+  
+}
+
+.virtuoso::-webkit-scrollbar {
+  display: none;
+}
+
+#scroll::-webkit-scrollbar {
+  display: none;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Characters from "../../components/Characters";
 import { getCharacters } from "../../services/rickAndMorty";
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
 
   const fetchCharacters = () => {
     setLoading(true);
-    getCharacters(page).then((res) => {
+    getCharacters(page).then((res) => {      
       setCharacters(res.results);
     });
     setLoading(false);
