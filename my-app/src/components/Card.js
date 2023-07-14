@@ -21,32 +21,10 @@ export default function Card({ results }) {
               </div>
             </div>
           </div>
-          {
-            (() => {
-              if (status === "Dead") {
-                return (
-                  <div className="spoiler badge position-absolute badge d-flex justify-content-center align-items-center">
-                    <p className="badge-text">{status}</p>
-                    <p className="spoiler-text">Spoiler</p>
-                  </div>
-                );
-              } else if (status === "Alive") {
-                return (
-                  <div className="spoiler badge position-absolute badge d-flex justify-content-center align-items-center">
-                    <p className="badge-text">{status}</p>
-                    <p className="spoiler-text">Spoiler</p>
-                  </div>
-                );
-              } else {
-                return (
-                  <div className="spoiler badge position-absolute badge d-flex justify-content-center align-items-center">
-                    <p className="badge-text">{status}</p>
-                    <p className="spoiler-text">Spoiler</p>
-                  </div>
-                );
-              }
-            })()
-          }
+          <div className="spoiler badge position-absolute badge d-flex justify-content-center align-items-center">
+            <p className="badge-text">{status}</p>
+            <p className="spoiler-text">Spoiler</p>
+          </div>
         </div>
       );
     });

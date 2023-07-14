@@ -32,7 +32,7 @@ export default function Episodes() {
       <div className="row justify-content-center mb-3">
         <h1 className="text-center mb-3 mt-2">
           Episode name : {" "}
-          <span className="text-primary">{!name ? "Unknown" : name}</span>
+          <span style={{color: "#445a13"}}>{!name ? "Unknown" : name}</span>
         </h1>
         <h5 className="text-center">
           Air Date: {!air_date ? "Unknown" : air_date}
