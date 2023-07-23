@@ -10,7 +10,7 @@ export default function Card({ results }) {
       return (
         <div
           key={id}
-          className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark">
+          className="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 position-relative text-dark card-frame">
           <div className="card d-flex flex-column justify-content-center">
             <img className="img img-fluid" src={image} alt="" />
             <div className="content">

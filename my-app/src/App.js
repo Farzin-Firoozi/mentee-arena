@@ -55,7 +55,7 @@ function Home() {
         <div className="row justify-content-center">
           <Filter />
           <div className="col-lg-8 col-12">
-            <div className="row">
+            <div className="row justify-content-center">
               {loading && <div className="spin-loader mx-auto"></div>}
               {!loading && <Card results={results} />}
             </div>

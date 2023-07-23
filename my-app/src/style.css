@@ -231,7 +231,11 @@ button[aria-expanded="false"] > .close {
 }
 @media (max-width: 575px) {
   .img {
-    width: auto;
+    width: 292px;
+    height: 292px;
+  }
+  .card-frame {
+    width: 320px;
     height: auto;
   }
 }
