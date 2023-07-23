@@ -1,0 +1,20 @@
+.card{
+    background-color: white;
+    border-radius: 12px;
+    width: 400px;
+    padding: 8px;
+    margin: 0 auto 32px;
+}
+
+.row{
+    display: flex;    
+    align-items: center;
+    gap: 32px;
+    justify-content: space-between;
+}
+
+.row > h5{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
