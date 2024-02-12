@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f2ac;
+  height: 100%;
+  flex-direction: column;
+}
+.container p {
+  color: white;
+  padding-left: 10px;
+}
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  background-color: aliceblue;
+  margin: 20px;
+  border-radius: 10%;
+  align-items: center;
+}
+.itemContainer div {
+  flex-direction: row;
+  display: flex;
+}
+.itemContainer li {
+  padding: 5px;
+}
+.itemContainer img {
+  padding: 5px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.icon {
+  font-size: 50px;
+  color: rgb(168, 17, 17);
+}
